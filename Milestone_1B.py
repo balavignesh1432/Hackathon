@@ -56,6 +56,7 @@ def performFlow(parent, values, flow):
     for flowThread in flowThreads:
         flowThread.join()
     currTime = datetime.datetime.now()
+
     if parent != '':
         logs.append(str(currTime) + ';' + parent + ' Exit')
 
