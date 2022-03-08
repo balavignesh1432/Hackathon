@@ -19,8 +19,6 @@ def timeFunc(parent, times):
         key = times['FunctionInput'][2:len(times['FunctionInput']) - 1]
         keyList = key.split('.')
         key = ".".join(keyList[:len(keyList) - 1])
-        print(key)
-        print(shared)
         while key not in shared.keys():
             pass
         string = str(currTime) + ';' + parent + ' Executing TimeFunction(' + str(shared[key][keyList[-1]]) + ', ' + times[
@@ -193,12 +191,12 @@ def performFlow(parent, values, flow):
         logs.append(str(currTime) + ';' + parent + ' Exit')
 
 if __name__ == '__main__':
-    yamlFile = open('Milestone2A.yaml')
+    yamlFile = open('Milestone2B.yaml')
     yamlParsed = yaml.load(yamlFile, Loader=yaml.FullLoader)
     yamlParsed = OrderedDict(yamlParsed)
     yamlFile.close()
 
-    logFile = open("Milestone2A_Log.txt", 'w')
+    logFile = open("Milestone2B_Log.txt", 'w')
     performFlow("", yamlParsed, None)
     for log in logs:
         logFile.write(log)
